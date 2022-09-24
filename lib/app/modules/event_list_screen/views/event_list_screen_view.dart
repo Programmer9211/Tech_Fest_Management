@@ -25,7 +25,7 @@ class EventListScreenView extends GetView<EventListScreenController> {
         backgroundColor: Colors.transparent,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 5, top: 12, bottom: 12),
+            padding: const EdgeInsets.only(right: 10, top: 12, bottom: 12).r,
             child: Container(
               height: 12.h,
               width: 84.w,
@@ -54,12 +54,19 @@ class EventListScreenView extends GetView<EventListScreenController> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: 16.w,
+          horizontal: 14.w,
         ),
         child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) {
-              return EventTile();
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  EventTile(),
+                ],
+              );
             }),
       ),
     );
