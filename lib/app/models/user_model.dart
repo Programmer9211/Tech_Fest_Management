@@ -37,7 +37,7 @@ class UserModel {
     data['institute_name'] = instituteName;
     data['registration_id'] = registrationId;
     data['email'] = email;
-    data[''] = isProfileComplete;
+    data[AppKeys.isProfileComplete] = isProfileComplete;
     return data;
   }
 }
