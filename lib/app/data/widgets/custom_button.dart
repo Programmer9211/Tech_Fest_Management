@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 class KButton extends StatelessWidget {
   final String title;
@@ -25,8 +26,8 @@ class KButton extends StatelessWidget {
           ),
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6.r),
-          color: Colors.black,
+          borderRadius: BorderRadius.circular(8.r),
+          color: AppColor.buttonColor,
           boxShadow: const [
             BoxShadow(
               offset: Offset(4, 4),
