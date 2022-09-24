@@ -120,7 +120,7 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                       ),
                       ProfleTextfield(
                         hintText: "Institute Id",
-                        controller: controller.instituteId,
+                        controller: controller.phoneNumber,
                       ),
                       SizedBox(
                         height: 18.h,
@@ -145,7 +145,9 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
               ),
               KButton(
                 title: "Save",
-                onTap: () {},
+                onTap: () {
+                  controller.onSaveData();
+                },
               ),
               SizedBox(
                 height: 20.h,
