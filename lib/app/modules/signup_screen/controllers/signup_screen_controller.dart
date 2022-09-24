@@ -8,5 +8,6 @@ class SignupScreenController extends GetxController {
   final TextEditingController name = TextEditingController();
   final TextEditingController registrationId = TextEditingController();
 
+  final isChecked = false;
   void onSignup() {}
 }

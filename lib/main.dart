@@ -12,20 +12,22 @@ void main() async {
 
   await Firebase.initializeApp();
 
-  if (FirebaseAuth.instance.currentUser != null) {
-    AppPages.INITIAL = Routes.HOME;
-  } else {
-    AppPages.INITIAL = Routes.SIGNIN_SCREEN;
-  }
+  // if (FirebaseAuth.instance.currentUser != null) {
+  //   AppPages.INITIAL = Routes.HOME;
+  // } else {
+  //   AppPages.INITIAL = Routes.SIGNIN_SCREEN;
+  // }
 
   runApp(
-    ScreenUtilInit(builder: (context, widget) {
-      return GetMaterialApp(
-        title: "Application",
-        debugShowCheckedModeBanner: false,
-        initialRoute: AppPages.INITIAL,
-        getPages: AppPages.routes,
-      );
-    }),
+    ScreenUtilInit(
+        designSize: const Size(360, 690),
+        builder: (context, widget) {
+          return GetMaterialApp(
+            title: "Application",
+            debugShowCheckedModeBanner: false,
+            initialRoute: AppPages.INITIAL,
+            getPages: AppPages.routes,
+          );
+        }),
   );
 }
