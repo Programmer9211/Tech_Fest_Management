@@ -2,7 +2,7 @@ import 'package:tech_fest_management/const/app_const/app_keys.dart';
 
 class UserModel {
   late String uid;
-  late String institueId;
+  late String phoneNumber;
   late String name;
   late String profileImage;
   late String instituteName;
@@ -13,7 +13,7 @@ class UserModel {
 
   UserModel({
     required this.uid,
-    required this.institueId,
+    required this.phoneNumber,
     required this.name,
     required this.instituteName,
     required this.registrationId,
@@ -25,25 +25,25 @@ class UserModel {
 
   UserModel.fromJson(Map<String, dynamic> json) {
     uid = json[AppKeys.uid];
-    institueId = json[AppKeys.institueId];
+    phoneNumber = json[AppKeys.phoneNumber];
     name = json[AppKeys.name];
     eventAttended = json[AppKeys.eventAttended];
     instituteName = json[AppKeys.instituteName];
-    registrationId = json['registration_id'];
-    profileImage = json['profile_image'];
-    email = json['email'];
-    isProfileComplete = json['is_profile_complete'];
+    registrationId = json[AppKeys.registrationId];
+    profileImage = json[AppKeys.profileImage];
+    email = json[AppKeys.email];
+    isProfileComplete = json[AppKeys.isProfileComplete];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
-    data['uid'] = uid;
-    data['institue_id'] = institueId;
-    data['name'] = name;
-    data['institute_name'] = instituteName;
-    data['registration_id'] = registrationId;
-    data['profile_image'] = profileImage;
-    data['email'] = email;
+    data[AppKeys.uid] = uid;
+    data[AppKeys.phoneNumber] = phoneNumber;
+    data[AppKeys.name] = name;
+    data[AppKeys.instituteName] = instituteName;
+    data[AppKeys.registrationId] = registrationId;
+    data[AppKeys.profileImage] = profileImage;
+    data[AppKeys.email] = email;
     data[AppKeys.eventAttended] = eventAttended;
     data[AppKeys.isProfileComplete] = isProfileComplete;
     return data;
