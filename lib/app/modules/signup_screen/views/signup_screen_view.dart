@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_button.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_textfield.dart';
+import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 import '../controllers/signup_screen_controller.dart';
 
@@ -36,7 +37,7 @@ class SignupScreenView extends GetView<SignupScreenController> {
                         Padding(
                           padding: const EdgeInsets.only(left: 2).r,
                           child: Text(
-                            "Enter Your Details & login",
+                            "Enter Your Details & Register",
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
@@ -116,7 +117,7 @@ class SignupScreenView extends GetView<SignupScreenController> {
                       TextSpan(text: "New User? "),
                       TextSpan(
                           text: "Register Here",
-                          style: TextStyle(color: Colors.blue))
+                          style: TextStyle(color: AppColor.textColor))
                     ]))
               ],
             ),

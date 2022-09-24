@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 class KTextField extends StatelessWidget {
   final String hintText;
@@ -16,7 +17,10 @@ class KTextField extends StatelessWidget {
         filled: true,
         isDense: true,
         hintText: hintText,
-        hintStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+        hintStyle: TextStyle(
+            fontSize: 16.sp,
+            fontWeight: FontWeight.w500,
+            color: AppColor.hintText),
         focusColor: Colors.blue,
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.blue, width: 2),
