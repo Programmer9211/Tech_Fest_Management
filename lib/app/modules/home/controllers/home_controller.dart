@@ -9,6 +9,13 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  List<String> peoples = [
+    "Image/asset.png",
+    "Image/asset.png",
+    "Image/asset.png",
+    "Image/asset.png",
+  ];
+
   @override
   void onReady() {
     super.onReady();

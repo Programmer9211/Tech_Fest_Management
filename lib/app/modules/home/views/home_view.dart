@@ -133,15 +133,32 @@ class HomeView extends GetView<HomeController> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                            Container(
-                              width: 28.sp,
-                              height: 28.sp,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                shape: BoxShape.circle,
+                            Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  // SizedBox(width: 20.w),
+                                  for(int i = 0; i<controller.peoples.length; i++)
+                                    Container(
+                                      margin: EdgeInsets.symmetric(vertical: 0),
+                                      child: Align(
+                                        widthFactor: 0.5,
+                                        child: CircleAvatar(
+                                          radius: 16.r,
+                                          backgroundColor: Colors.white,
+                                          child: CircleAvatar(
+                                            radius: 14.r,
+                                            backgroundColor: Colors.black38,
+                                            //backgroundImage: Image.asset(),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  
+                                ],
                               ),
                             ),
-                            SizedBox(width: 40.w),
+                            SizedBox(width: 72.w),
                             Container(
                               width: 80.w,
                               height: 32.h,
@@ -170,8 +187,8 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                  color: Color(0xffD9D9D9),
-                  borderRadius: BorderRadius.all(Radius.circular(12.r))
+                  color: Color(0xffD6d6d6),
+                  borderRadius: BorderRadius.all(Radius.circular(8.r))
                 ),
               )
             ],
