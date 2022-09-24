@@ -33,6 +33,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 8.h),
               Container(
                 width: 400.w,
                 height: 240.h,
@@ -167,6 +168,7 @@ Widget IContainer(
                   : SizedBox(),
             ],
           ),
+          SizedBox(height: 4.h),
           Text(
             desc,
             style: TextStyle(
