@@ -202,7 +202,7 @@ class HomeView extends GetView<HomeController> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 72.w),
+                                // SizedBox(width: 52.w),
                                 Container(
                                   width: 80.w,
                                   height: 32.h,
