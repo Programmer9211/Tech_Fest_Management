@@ -24,4 +24,6 @@ class ProfileFunctions {
       return null;
     }
   }
+
+  static Future<void> setUserProfileDetails() async {}
 }
