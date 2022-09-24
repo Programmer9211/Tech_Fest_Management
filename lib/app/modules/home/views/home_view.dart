@@ -9,6 +9,8 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation : 0.0,
+        backgroundColor : Color(0xffFAFAFA),
         title: Text('HomeView'),
         centerTitle: true,
       ),
