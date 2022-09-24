@@ -111,7 +111,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
             height: 60.h,
             alignment: Alignment.center,
             child: Text(
-              "Register Now",
+              "Fill Form",
               style: TextStyle(
                   fontSize: 16.sp,
                   color: Colors.white,
