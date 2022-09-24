@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../const/app_const/app_color.dart';
 
 class ProfleTextfield extends StatelessWidget {
   final String hintText;
-  const ProfleTextfield({super.key, required this.hintText});
+  final TextEditingController controller;
+  const ProfleTextfield(
+      {super.key, required this.hintText, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,7 @@ class ProfleTextfield extends StatelessWidget {
         height: 48,
         width: 300,
         child: TextFormField(
+          controller: controller,
           decoration: InputDecoration(
             fillColor: Color(0xffF3F3F3),
             filled: true,

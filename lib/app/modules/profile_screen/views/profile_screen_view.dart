@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/widgets/custom_button.dart';
 import 'package:tech_fest_management/app/data/widgets/profile_tf.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
@@ -44,26 +45,28 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                   SizedBox(
                     width: 26.w,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "USER_NAME",
-                        style: TextStyle(
-                            fontSize: 22.sp, fontWeight: FontWeight.w500),
-                      ),
-                      Text(
-                        "Email Identity",
-                        style: TextStyle(
-                            fontSize: 16.sp, fontWeight: FontWeight.w500),
-                      ),
-                      Text(
-                        "College Name",
-                        style: TextStyle(
-                            fontSize: 16.sp, fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  )
+                  GetBuilder<ProfileScreenController>(builder: (cont) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          cont.userModel.name,
+                          style: TextStyle(
+                              fontSize: 22.sp, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          cont.userModel.email,
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          cont.userModel.instituteName,
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    );
+                  })
                 ],
               ),
               SizedBox(
@@ -85,7 +88,7 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                           fontSize: 22.sp, fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      "034",
+                      "${controller.userModel.eventAttended}",
                       style: TextStyle(
                           fontSize: 32.sp, fontWeight: FontWeight.w700),
                     ),
@@ -96,44 +99,57 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                 height: 22.h,
               ),
               Container(
-                height: 415.h,
+                height: 270.h,
                 width: 300.w,
                 decoration: BoxDecoration(
                   color: AppColor.blocks,
                   borderRadius: BorderRadius.circular(8.r),
                 ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 26.h,
-                    ),
-                    ProfleTextfield(hintText: "Editable User Name"),
-                    SizedBox(
-                      height: 18.h,
-                    ),
-                    ProfleTextfield(hintText: "Editable User Name"),
-                    SizedBox(
-                      height: 18.h,
-                    ),
-                    ProfleTextfield(hintText: "Editable User Name"),
-                    SizedBox(
-                      height: 18.h,
-                    ),
-                    ProfleTextfield(hintText: "Editable User Name"),
-                    SizedBox(
-                      height: 18.h,
-                    ),
-                    ProfleTextfield(hintText: "Editable User Name"),
-                    SizedBox(
-                      height: 18.h,
-                    ),
-                    ProfleTextfield(hintText: "Editable User Name"),
-                  ],
-                ),
+                child: GetBuilder<ProfileScreenController>(builder: (cont) {
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 26.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Name",
+                        controller: controller.name,
+                      ),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Institute Id",
+                        controller: controller.instituteId,
+                      ),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Institute Name",
+                        controller: controller.instituteName,
+                      ),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Registration Id",
+                        controller: controller.registrationId,
+                      ),
+                    ],
+                  );
+                }),
               ),
               SizedBox(
-                height: 72,
-              )
+                height: 10.h,
+              ),
+              KButton(
+                title: "Save",
+                onTap: () {},
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
             ],
           ),
         ),

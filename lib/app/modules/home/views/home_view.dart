@@ -12,27 +12,31 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Color(0xffFAFAFA),
-          title: Text(
-            "Tech Fest",
-            style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w500,
-              color: Color(0xff000000),
-            ),
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Color(0xffFAFAFA),
+        title: Text(
+          "Tech Fest",
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.w500,
+            color: Color(0xff000000),
           ),
-          actions: [
-            Icon(
-              Icons.dark_mode,
-              color: Colors.black,
-            ),
-            SizedBox(
-              width: 12.w,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
+        ),
+        actions: [
+          Icon(
+            Icons.dark_mode,
+            color: Colors.black,
+          ),
+          SizedBox(
+            width: 12.w,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.PROFILE_SCREEN);
+              },
               child: Container(
                 height: 42.h,
                 width: 28.w,
@@ -40,10 +44,12 @@ class HomeView extends GetView<HomeController> {
                     color: Color(0xff000000),
                     borderRadius: BorderRadius.all(Radius.circular(8.r))),
               ),
-            )
-          ],
-        ),
-        body: Column(children: [
+            ),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.sp),
             child: Column(
@@ -219,9 +225,11 @@ class HomeView extends GetView<HomeController> {
                                             fontWeight: FontWeight.w400,
                                             fontFamily: "ubuntu")),
                                     decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(4.r))),
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(4.r),
+                                      ),
+                                    ),
                                   ),
                                 )
                               ],
@@ -238,7 +246,9 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
           )
-        ]));
+        ],
+      ),
+    );
   }
 
   Widget indicator(Size size, bool isSelected) {

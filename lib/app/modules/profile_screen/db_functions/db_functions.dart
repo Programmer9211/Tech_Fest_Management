@@ -25,5 +25,14 @@ class ProfileFunctions {
     }
   }
 
-  static Future<void> setUserProfileDetails() async {}
+  static Future<void> setUserProfileDetails(UserModel userModel) async {
+    try {
+      await _firestore
+          .collection(AppKeys.users)
+          .doc(_auth.currentUser!.uid)
+          .update(userModel.toJson());
+    } catch (e) {
+      print(e);
+    }
+  }
 }

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tech_fest_management/app/modules/event_details_screen/bindings/event_details_screen_binding.dart';
+import 'package:tech_fest_management/app/modules/event_list_screen/bindings/event_list_screen_binding.dart';
+import 'package:tech_fest_management/app/modules/event_list_screen/views/event_list_screen_view.dart';
 
 import '../modules/event_details_screen/views/event_details_screen_view.dart';
 import '../modules/home/bindings/home_bindings.dart';
@@ -56,5 +58,10 @@ class AppPages {
       page: () => EventDetailsScreenView(),
       binding: EventDetailsScreenBinding(),
     ),
+    GetPage(
+      name: _Paths.EVENT_LIST_SCREEN,
+      page: () => EventListScreenView(),
+      binding: EventListScreenBinding(),
+    )
   ];
 }

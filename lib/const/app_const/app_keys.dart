@@ -12,6 +12,7 @@ abstract class AppKeys {
   static const institueId = "institue_id";
   static const instituteName = "institute_name";
   static const registrationId = "registration_id";
+  static const eventAttended = "event_attended";
   static const events = "events";
   static const failed = "failed";
   static const sucess = "sucess";
