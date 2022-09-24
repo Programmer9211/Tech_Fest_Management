@@ -52,11 +52,6 @@ class AppPages {
       binding: ProfileScreenBinding(),
     ),
     GetPage(
-      name: _Paths.AUTHENTICATION,
-      page: () => AuthenticationView(),
-      binding: AuthenticationBinding(),
-    ),
-    GetPage(
       name: _Paths.EVENT_DETAILS_SCREEN,
       page: () => EventDetailsScreenView(),
       binding: EventDetailsScreenBinding(),
