@@ -5,11 +5,14 @@ import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 class KTextField extends StatelessWidget {
   final String hintText;
-  const KTextField({super.key, required this.hintText});
+  final TextEditingController controller;
+  const KTextField(
+      {super.key, required this.hintText, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       cursorColor: Colors.blue,
       maxLines: 1,
       decoration: InputDecoration(

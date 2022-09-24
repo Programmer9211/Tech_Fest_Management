@@ -52,11 +52,17 @@ class SigninScreenView extends GetView<SigninScreenController> {
               SizedBox(
                 height: 80.h,
               ),
-              KTextField(hintText: "Enter Your Email"),
+              KTextField(
+                hintText: "Enter Your Email",
+                controller: controller.email,
+              ),
               SizedBox(
                 height: 26.h,
               ),
-              KTextField(hintText: "Enter Password"),
+              KTextField(
+                hintText: "Enter Password",
+                controller: controller.password,
+              ),
               SizedBox(
                 height: 18.h,
               ),
