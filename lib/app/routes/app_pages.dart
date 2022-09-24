@@ -55,6 +55,6 @@ class AppPages {
       name: _Paths.EVENT_DETAILS_SCREEN,
       page: () => EventDetailsScreenView(),
       binding: EventDetailsScreenBinding(),
-    )
+    ),
   ];
 }
