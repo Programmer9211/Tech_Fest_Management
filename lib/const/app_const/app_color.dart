@@ -10,4 +10,7 @@ class AppColor {
 
   //Profile
   static const Color blocks = Color(0xffD9D9D9);
+
+  //Event Details
+  static const Color tileColor = Color(0xffD6D6D6);
 }

@@ -27,18 +27,158 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               fontFamily: "ubuntu"),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal:8.0),
-        child: Column(
-          children: [
-            Container(
-              width: 400.w,
-              height: 100.h,
-              color: Colors.black,
-            )
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.0.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 400.w,
+                height: 240.h,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(8.r))),
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              Text(
+                "TECH_FEST_NAME",
+                style: TextStyle(
+                    fontSize: 22.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: "ubuntu"),
+              ),
+              SizedBox(
+                height: 4.h,
+              ),
+              Text(
+                "TECH_FEST_NAME",
+                style: TextStyle(
+                    fontSize: 12.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: "ubuntu"),
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              IContainer(
+                title: "Description",
+                desc: "Lorem ipsum Chutiyapa",
+                isClickable: false,
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              IContainer(
+                title: "Venue",
+                desc: "GBU toh nahi jana",
+                isClickable: true,
+                clickText: "Show in Map"
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              IContainer(
+                title: "Entry Fees",
+                desc: "\$100(One Hundred Rupees)",
+                isClickable: false,
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              IContainer(
+                title: "Timings",
+                desc: "Wifi nahi chalega late jana",
+                isClickable: true,
+                clickText: "Set Reminder"
+              ),
+              SizedBox(height: 80.h),
+            ],
+          ),
         ),
-      )
+      ),
+      bottomSheet: InkWell(
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: 400.w,
+            height: 60.h,
+            alignment: Alignment.center,
+            child: Text(
+              "Register Now",
+              style: TextStyle(
+                  fontSize: 16.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "ubuntu"),
+            ),
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.all(Radius.circular(8.r))),
+          ),
+        ),
+      ),
     );
   }
+}
+
+Widget IContainer(
+    {required String title,
+    required String desc,
+    required bool isClickable,
+    String clickText = "",
+    onTap}) {
+  return Container(
+    width: 400.w,
+    alignment: Alignment.topLeft,
+    child: Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+              ),
+              isClickable
+                  ? InkWell(
+                      onTap: () {},
+                      child: Text(
+                        clickText,
+                        style: TextStyle(
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    )
+                  : SizedBox(),
+            ],
+          ),
+          Text(
+            desc,
+            style: TextStyle(
+              fontSize: 12.sp,
+              color: Colors.black,
+            ),
+          )
+        ],
+      ),
+    ),
+    decoration: BoxDecoration(
+        color: AppColor.tileColor,
+        borderRadius: BorderRadius.all(Radius.circular(8.r))),
+  );
 }
