@@ -6,7 +6,7 @@ import 'package:tech_fest_management/app/modules/profile_screen/db_functions/db_
 
 class ProfileScreenController extends GetxController {
   TextEditingController name = TextEditingController();
-  final TextEditingController instituteId = TextEditingController();
+  final TextEditingController phoneNumber = TextEditingController();
   final TextEditingController instituteName = TextEditingController();
   final TextEditingController registrationId = TextEditingController();
 
@@ -26,14 +26,33 @@ class ProfileScreenController extends GetxController {
     Indicator.closeLoading();
 
     name = TextEditingController(text: userModel.name);
-    instituteId.text = userModel.institueId;
+    phoneNumber.text = userModel.phoneNumber;
     instituteName.text = userModel.instituteName;
     registrationId.text = userModel.registrationId;
 
     update();
   }
 
-  void onSaveData() async {}
+  void onSaveData() async {
+    if (name.text.isNotEmpty &&
+        phoneNumber.text.isNotEmpty &&
+        instituteName.text.isNotEmpty &&
+        registrationId.text.isNotEmpty) {
+      Indicator.showLoading();
+
+      userModel.name = name.text;
+      userModel.phoneNumber = phoneNumber.text;
+      userModel.instituteName = instituteName.text;
+      userModel.registrationId = registrationId.text;
+
+      await ProfileFunctions.setUserProfileDetails(userModel);
+
+      Indicator.closeLoading();
+
+      // Get.back();
+      update();
+    }
+  }
 
   @override
   void onReady() {
@@ -50,7 +69,7 @@ class ProfileScreenController extends GetxController {
       email: "",
       uid: "",
       name: "",
-      institueId: "",
+      phoneNumber: "",
       instituteName: "",
       profileImage: "",
       registrationId: "",

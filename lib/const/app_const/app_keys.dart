@@ -9,10 +9,11 @@ abstract class AppKeys {
   static const name = "name";
   static const email = "email";
   static const carouselSliderCollection = "carousel_slider_collection";
-  static const institueId = "institue_id";
+  static const phoneNumber = "phone_number";
   static const instituteName = "institute_name";
   static const registrationId = "registration_id";
   static const eventAttended = "event_attended";
+  static const profileImage = "profile_image";
   static const events = "events";
   static const failed = "failed";
   static const sucess = "sucess";
