@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:overlay_group_avatar/overlay_group_avatar.dart';
+import 'package:tech_fest_management/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -202,21 +203,26 @@ class HomeView extends GetView<HomeController> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 72.w),
-                                Container(
-                                  width: 80.w,
-                                  height: 32.h,
-                                  alignment: Alignment.center,
-                                  child: Text("Register",
-                                      style: TextStyle(
-                                          fontSize: 12.sp,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w400,
-                                          fontFamily: "ubuntu")),
-                                  decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(4.r))),
+                                // SizedBox(width: 52.w),
+                                InkWell(
+                                  onTap: () {
+                                    Get.toNamed(Routes.EVENT_DETAILS_SCREEN);
+                                  },
+                                  child: Container(
+                                    width: 80.w,
+                                    height: 32.h,
+                                    alignment: Alignment.center,
+                                    child: Text("Register",
+                                        style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.w400,
+                                            fontFamily: "ubuntu")),
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(4.r))),
+                                  ),
                                 )
                               ],
                             )
