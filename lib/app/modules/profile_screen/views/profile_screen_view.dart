@@ -19,9 +19,12 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
         ),
         leading: Padding(
           padding: const EdgeInsets.only(left: 8).r,
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
           ),
         ),
         backgroundColor: AppColor.backGround,

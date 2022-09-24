@@ -59,7 +59,7 @@ class AuthenticationService {
           email: email,
           uid: user.uid,
           name: name,
-          institueId: "",
+          phoneNumber: "",
           instituteName: "",
           profileImage: "",
           registrationId: "",
