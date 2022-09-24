@@ -61,6 +61,7 @@ class AuthenticationService {
           name: name,
           institueId: "",
           instituteName: "",
+          profileImage: "",
           registrationId: "",
           isProfileComplete: false,
         );

@@ -1,20 +1,15 @@
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/models/user_model.dart';
+import 'package:tech_fest_management/app/modules/profile_screen/db_functions/db_functions.dart';
 
 class ProfileScreenController extends GetxController {
-  //TODO: Implement ProfileScreenController
+  late UserModel userModel;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void getUserDetails() async {
+    UserModel? model = await ProfileFunctions.getUserProfileDetail();
+
+    if (model != null) {
+      userModel = model;
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }
