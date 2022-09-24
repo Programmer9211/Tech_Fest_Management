@@ -15,7 +15,6 @@ abstract class Routes {
 
 abstract class _Paths {
   static const HOME = '/home';
-  static const LOGIN_SCREEN = '/login-screen';
   static const SIGNUP_SCREEN = '/signup-screen';
   static const SIGNIN_SCREEN = '/signin-screen';
   static const PROFILE_SCREEN = '/profile-screen';
