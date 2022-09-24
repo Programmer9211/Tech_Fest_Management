@@ -4,6 +4,7 @@ class UserModel {
   late String uid;
   late String institueId;
   late String name;
+  late String profileImage;
   late String instituteName;
   late String registrationId;
   late String email;
@@ -15,6 +16,7 @@ class UserModel {
     required this.name,
     required this.instituteName,
     required this.registrationId,
+    required this.profileImage,
     required this.email,
     required this.isProfileComplete,
   });
@@ -25,6 +27,7 @@ class UserModel {
     name = json[AppKeys.name];
     instituteName = json[AppKeys.instituteName];
     registrationId = json['registration_id'];
+    profileImage = json['profile_image'];
     email = json['email'];
     isProfileComplete = json['is_profile_complete'];
   }
@@ -36,6 +39,7 @@ class UserModel {
     data['name'] = name;
     data['institute_name'] = instituteName;
     data['registration_id'] = registrationId;
+    data['profile_image'] = profileImage;
     data['email'] = email;
     data[AppKeys.isProfileComplete] = isProfileComplete;
     return data;

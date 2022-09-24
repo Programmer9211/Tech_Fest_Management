@@ -10,6 +10,7 @@ abstract class Routes {
   static const PROFILE_SCREEN = _Paths.PROFILE_SCREEN;
   static const AUTHENTICATION = _Paths.AUTHENTICATION;
   static const EVENT_DETAILS_SCREEN = _Paths.EVENT_DETAILS_SCREEN;
+  static const EVENT_LIST_SCREEN = _Paths.EVENT_LIST_SCREEN;
 }
 
 abstract class _Paths {
@@ -20,4 +21,5 @@ abstract class _Paths {
   static const PROFILE_SCREEN = '/profile-screen';
   static const AUTHENTICATION = '/authentication';
   static const EVENT_DETAILS_SCREEN = '/event-details-screen';
+  static const EVENT_LIST_SCREEN = '/event-list-screen';
 }
