@@ -119,7 +119,7 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                         height: 18.h,
                       ),
                       ProfleTextfield(
-                        hintText: "Institute Id",
+                        hintText: "Phone Number",
                         controller: controller.phoneNumber,
                       ),
                       SizedBox(
