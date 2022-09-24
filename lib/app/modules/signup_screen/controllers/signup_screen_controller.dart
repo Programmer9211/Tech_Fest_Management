@@ -8,7 +8,7 @@ class SignupScreenController extends GetxController {
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController name = TextEditingController();
-
+//836841
   final isChecked = false;
   void onSignup() async {
     if (email.text.isNotEmpty &&
@@ -23,7 +23,7 @@ class SignupScreenController extends GetxController {
 
       Indicator.closeLoading();
 
-      Get.offAll(Routes.AUTHENTICATION);
+      Get.offAllNamed(Routes.AUTHENTICATION);
     }
   }
 }

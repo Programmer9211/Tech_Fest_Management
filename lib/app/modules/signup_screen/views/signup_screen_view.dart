@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_button.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_textfield.dart';
+import 'package:tech_fest_management/app/routes/app_pages.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 import '../controllers/signup_screen_controller.dart';
@@ -118,28 +120,12 @@ class SignupScreenView extends GetView<SignupScreenController> {
               ),
               KButton(
                 title: "SIGN UP",
-                onTap: () {},
+                onTap: () {
+                  controller.onSignup();
+                },
               ),
               SizedBox(
                 height: 70.h,
-              ),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "New User? ",
-                    ),
-                    TextSpan(
-                      text: "Register Here",
-                      style: TextStyle(color: AppColor.textColor),
-                    )
-                  ],
-                ),
               ),
             ],
           ),

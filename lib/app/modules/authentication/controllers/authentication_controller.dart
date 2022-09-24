@@ -9,11 +9,11 @@ class AuthenticationController extends GetxController {
     super.onReady();
     if (FirebaseAuth.instance.currentUser != null) {
       Get.offAllNamed(
-        Routes.SIGNIN_SCREEN,
+        Routes.HOME,
       );
     } else {
       Get.offAllNamed(
-        Routes.SIGNUP_SCREEN,
+        Routes.SIGNIN_SCREEN,
       );
     }
   }

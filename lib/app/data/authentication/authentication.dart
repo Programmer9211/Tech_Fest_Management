@@ -57,11 +57,11 @@ class AuthenticationService {
       if (user != null) {
         UserModel userModel = UserModel(
           email: email,
-          uid: uid,
+          uid: user.uid,
           name: name,
-          institueId: '',
-          instituteName: '',
-          registrationId: '',
+          institueId: "",
+          instituteName: "",
+          registrationId: "",
           isProfileComplete: false,
         );
 

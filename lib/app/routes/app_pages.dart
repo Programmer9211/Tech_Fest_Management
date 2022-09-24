@@ -14,7 +14,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static String INITIAL = Routes.HOME;
+  static String INITIAL = Routes.AUTHENTICATION;
 
   static final routes = [
     GetPage(

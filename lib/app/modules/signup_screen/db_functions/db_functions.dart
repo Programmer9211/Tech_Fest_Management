@@ -8,6 +8,8 @@ class SignupFunctions {
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   static Future<void> saveUserDetails(UserModel userModel) async {
+    print(userModel.toJson());
+
     await _firestore
         .collection(AppKeys.users)
         .doc(userModel.uid)
