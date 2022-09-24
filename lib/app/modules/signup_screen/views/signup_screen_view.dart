@@ -12,7 +12,7 @@ class SignupScreenView extends GetView<SignupScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xffFAFAFA),
+        backgroundColor: AppColor.backGround,
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 22.w),
