@@ -4,14 +4,14 @@ import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 class KButton extends StatelessWidget {
   final String title;
-  final Function onTap;
+  final onTap;
 
   const KButton({super.key, required this.title, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap(),
+      onTap: onTap,
       child: Container(
         height: 64.h,
         alignment: Alignment.center,

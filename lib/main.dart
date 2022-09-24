@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'app/routes/app_pages.dart';
 
@@ -11,23 +12,19 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
-
-  // if (FirebaseAuth.instance.currentUser != null) {
-  //   AppPages.INITIAL = Routes.HOME;
-  // } else {
-  //   AppPages.INITIAL = Routes.SIGNIN_SCREEN;
-  // }
+  await GetStorage.init();
 
   runApp(
     ScreenUtilInit(
-        designSize: const Size(360, 690),
-        builder: (context, widget) {
-          return GetMaterialApp(
-            title: "Application",
-            debugShowCheckedModeBanner: false,
-            initialRoute: AppPages.INITIAL,
-            getPages: AppPages.routes,
-          );
-        }),
+      designSize: const Size(360, 690),
+      builder: (context, widget) {
+        return GetMaterialApp(
+          title: "Application",
+          debugShowCheckedModeBanner: false,
+          initialRoute: AppPages.INITIAL,
+          getPages: AppPages.routes,
+        );
+      },
+    ),
   );
 }
