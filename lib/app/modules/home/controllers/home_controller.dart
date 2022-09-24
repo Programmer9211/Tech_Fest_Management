@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/models/event_model.dart';
+import 'package:tech_fest_management/app/modules/home/db_functions/db_functions.dart';
 
 class HomeController extends GetxController {
 

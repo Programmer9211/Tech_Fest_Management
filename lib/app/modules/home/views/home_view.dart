@@ -17,9 +17,10 @@ class HomeView extends GetView<HomeController> {
           title: Text(
             "Tech Fest",
             style: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff000000)),
+              fontSize: 20.sp,
+              fontWeight: FontWeight.w500,
+              color: Color(0xff000000),
+            ),
           ),
           actions: [
             Icon(
@@ -106,6 +107,7 @@ class HomeView extends GetView<HomeController> {
                         width: 160.w,
                         color: Colors.black,
                       ),
+                      SizedBox(width: 18.w),
                       Text(
                         "More",
                         style: TextStyle(
@@ -231,6 +233,20 @@ class HomeView extends GetView<HomeController> {
             ),
           )
         ]));
+  }
+
+  Widget indicator(Size size, bool isSelected) {
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: Container(
+        height: isSelected ? size.height / 80 : size.height / 100,
+        width: isSelected ? size.height / 80 : size.height / 100,
+        decoration: const BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.black,
+        ),
+      ),
+    );
   }
 }
 
