@@ -15,7 +15,6 @@ dependencies:
   firebase_auth: ^3.10.0
   cloud_firestore: ^3.4.9
   flutter_screenutil: ^5.5.4
-  overlay_group_avatar: ^0.0.4
   image_picker: ^0.8.5+3
 
 dev_dependencies: 
