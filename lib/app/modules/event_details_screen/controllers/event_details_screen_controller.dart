@@ -1,20 +1,8 @@
 import 'package:get/get.dart';
 
 class EventDetailsScreenController extends GetxController {
-  //TODO: Implement EventDetailsScreenController
+  List<String> carouselSliderImage = [];
+  List<RxBool> isSelected = [];
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  void onPageChanged(int value) {}
 }

@@ -4,6 +4,7 @@ class EventModel {
   late String eventTime;
   late List imageUrl;
   late int eventTeamSize;
+  late int registrationFees;
   late String eventDescription;
   late EventContactDetails eventContactDetails;
   late String eventLocation;
@@ -16,6 +17,7 @@ class EventModel {
     required this.imageUrl,
     required this.eventTeamSize,
     required this.eventDescription,
+    required this.registrationFees,
     required this.eventContactDetails,
     required this.eventLocation,
     required this.latLong,
@@ -28,6 +30,7 @@ class EventModel {
     imageUrl = json['image_url'];
     eventTeamSize = json['event_team_size'];
     eventDescription = json['event_description'];
+    registrationFees = json['registration_fees'];
     eventContactDetails =
         EventContactDetails.fromJson(json['event_contact_details']);
     eventLocation = json['event_location'];
@@ -45,6 +48,7 @@ class EventModel {
     data['event_contact_details'] = eventContactDetails.toJson();
     data['event_location'] = eventLocation;
     data['lat_long'] = latLong;
+    data['registration_fees'] = registrationFees;
     return data;
   }
 }

@@ -4,11 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
+import '../../home/views/home_view.dart';
 import '../controllers/event_details_screen_controller.dart';
 
 class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
@@ -21,10 +24,11 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
         title: Text(
           "Event_Name",
           style: TextStyle(
-              fontSize: 18.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-              fontFamily: "ubuntu"),
+            fontSize: 18.sp,
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontFamily: "ubuntu",
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -34,12 +38,40 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 8.h),
-              Container(
-                width: 400.w,
-                height: 240.h,
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.all(Radius.circular(8.r))),
+              SizedBox(
+                height: 120.h,
+                width: 300.w,
+                child: PageView.builder(
+                  itemCount: controller.carouselSliderImage.length,
+                  onPageChanged: controller.onPageChanged,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              controller.carouselSliderImage[index],
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: size.height / 25,
+                width: size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for (int i = 0; i < controller.isSelected.length; i++)
+                      Obx(() {
+                        return indicator(size, controller.isSelected[i].value);
+                      })
+                  ],
+                ),
               ),
               SizedBox(
                 height: 12.h,
@@ -75,11 +107,10 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 12.h,
               ),
               IContainer(
-                title: "Venue",
-                desc: "GBU toh nahi jana",
-                isClickable: true,
-                clickText: "Show in Map"
-              ),
+                  title: "Venue",
+                  desc: "GBU toh nahi jana",
+                  isClickable: true,
+                  clickText: "Show in Map"),
               SizedBox(
                 height: 12.h,
               ),
@@ -92,11 +123,10 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 12.h,
               ),
               IContainer(
-                title: "Timings",
-                desc: "Wifi nahi chalega late jana",
-                isClickable: true,
-                clickText: "Set Reminder"
-              ),
+                  title: "Timings",
+                  desc: "Wifi nahi chalega late jana",
+                  isClickable: true,
+                  clickText: "Set Reminder"),
               SizedBox(height: 80.h),
             ],
           ),
