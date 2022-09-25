@@ -17,5 +17,6 @@ abstract class AppKeys {
   static const events = "events";
   static const failed = "failed";
   static const sucess = "sucess";
+  static const invites = "invites";
   static const isProfileComplete = "is_profile_complete";
 }
