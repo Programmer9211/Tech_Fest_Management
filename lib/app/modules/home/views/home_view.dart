@@ -64,7 +64,7 @@ class HomeView extends GetView<HomeController> {
             child: Column(
               children: [
                 Container(
-              // color: Colors.red,
+                  // color: Colors.red,
                   height: 230.h,
                   width: 430.w,
                   child: PageView.builder(
@@ -138,7 +138,15 @@ class HomeView extends GetView<HomeController> {
                     ],
                   ),
                 ),
-                EventTile(),
+                GetBuilder<HomeController>(builder: (controller) {
+                  if (controller.eventsModel != null) {
+                    return EventTile(
+                      model: controller.eventsModel,
+                    );
+                  } else {
+                    return SizedBox();
+                  }
+                }),
               ],
             ),
           )

@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/models/event_model.dart';
 import 'package:tech_fest_management/app/modules/home/controllers/home_controller.dart';
 
 import '../../routes/app_pages.dart';
 
 class EventTile extends StatelessWidget {
-  EventTile({super.key});
+  final EventModel? model;
+  EventTile({super.key, required this.model});
 
   final controller = Get.find<HomeController>();
 
@@ -37,7 +39,7 @@ class EventTile extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          "Event_Name",
+                          model!.eventTitle,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 18.sp,
@@ -49,7 +51,7 @@ class EventTile extends StatelessWidget {
                       SizedBox(width: 18.w),
                       Expanded(
                         child: Text(
-                          "22 Oct 2022",
+                          "${model!.eventStartTimings.day} ${model!.eventStartTimings.month} ${model!.eventStartTimings.year}",
                           style: TextStyle(
                             color: Colors.black45,
                             fontSize: 12.sp,
@@ -61,7 +63,7 @@ class EventTile extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    "Slogan description goes here",
+                    model!.eventDescription,
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 12.sp,
@@ -123,7 +125,7 @@ class EventTile extends StatelessWidget {
                               ),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   )

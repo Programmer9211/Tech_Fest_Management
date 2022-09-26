@@ -23,13 +23,11 @@ class HomeDbFunctions {
     }
   }
 
-  static Future<List<EventModel>?> getAllEvents() async {
+  static Future<EventModel?> getAllEvents() async {
     try {
-      final result = await _firestore.collection(AppKeys.events).get();
+      final result = await _firestore.collection(AppKeys.events).limit(1).get();
 
-      List<EventModel> model = [];
-
-      model = result.docs.map((e) => EventModel.fromJson(e.data())).toList();
+      EventModel model = EventModel.fromJson(result.docs.first.data());
 
       return model;
     } catch (e) {

@@ -64,7 +64,7 @@ class EventListScreenView extends GetView<EventListScreenController> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  EventTile(),
+                  SizedBox(),
                 ],
               );
             }),
