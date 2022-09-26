@@ -110,6 +110,9 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                   title: "Venue",
                   desc: controller.eventModel.eventLocation.address,
                   isClickable: true,
+                  onTap: () {
+                    controller.navigateToGoogleMap();
+                  },
                   clickText: "Show in Map"),
               SizedBox(
                 height: 12.h,
@@ -171,53 +174,56 @@ Widget IContainer(
     required bool isClickable,
     String clickText = "",
     onTap}) {
-  return Container(
-    width: 400.w,
-    alignment: Alignment.topLeft,
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      width: 400.w,
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              isClickable
-                  ? InkWell(
-                      onTap: () {},
-                      child: Text(
-                        clickText,
-                        style: TextStyle(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.blue,
+                isClickable
+                    ? InkWell(
+                        onTap: () {},
+                        child: Text(
+                          clickText,
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.blue,
+                          ),
                         ),
-                      ),
-                    )
-                  : SizedBox(),
-            ],
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            desc,
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.black,
+                      )
+                    : SizedBox(),
+              ],
             ),
-          )
-        ],
+            SizedBox(height: 4.h),
+            Text(
+              desc,
+              style: TextStyle(
+                fontSize: 12.sp,
+                color: Colors.black,
+              ),
+            )
+          ],
+        ),
       ),
+      decoration: BoxDecoration(
+          color: AppColor.tileColor,
+          borderRadius: BorderRadius.all(Radius.circular(8.r))),
     ),
-    decoration: BoxDecoration(
-        color: AppColor.tileColor,
-        borderRadius: BorderRadius.all(Radius.circular(8.r))),
   );
 }
