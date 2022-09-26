@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/get_storage/get_storage.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_button.dart';
 import 'package:tech_fest_management/app/data/widgets/profile_tf.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
+import 'package:tech_fest_management/const/app_const/app_keys.dart';
 
 import '../controllers/profile_screen_controller.dart';
 
@@ -37,13 +39,51 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
             children: [
               Row(
                 children: [
-                  Container(
-                    height: 100.h,
-                    width: 100.h,
-                    decoration: BoxDecoration(
-                      color: AppColor.blocks,
-                      borderRadius: BorderRadius.circular(8.r),
-                    ),
+                  GestureDetector(
+                    onTap: () {
+                      controller.pickImage();
+                    },
+                    child: GetBuilder<ProfileScreenController>(
+                        builder: (controller) {
+                      if (controller.profileImageFile != null) {
+                        return Container(
+                          height: 100.h,
+                          width: 100.h,
+                          decoration: BoxDecoration(
+                            color: AppColor.blocks,
+                            borderRadius: BorderRadius.circular(8.r),
+                            image: DecorationImage(
+                                image: FileImage(controller.profileImageFile!)),
+                          ),
+                        );
+                      } else if (Storage.getValue(AppKeys.profileImage)
+                              .toString()
+                              .isNotEmpty &&
+                          Storage.getValue(AppKeys.profileImage) != null) {
+                        return Container(
+                          height: 100.h,
+                          width: 100.h,
+                          decoration: BoxDecoration(
+                            color: AppColor.blocks,
+                            borderRadius: BorderRadius.circular(8.r),
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                Storage.getValue(AppKeys.profileImage) ?? "",
+                              ),
+                            ),
+                          ),
+                        );
+                      } else {
+                        return Container(
+                          height: 100.h,
+                          width: 100.h,
+                          decoration: BoxDecoration(
+                            color: AppColor.blocks,
+                            borderRadius: BorderRadius.circular(8.r),
+                          ),
+                        );
+                      }
+                    }),
                   ),
                   SizedBox(
                     width: 26.w,
