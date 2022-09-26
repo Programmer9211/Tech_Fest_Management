@@ -65,6 +65,9 @@ class AuthenticationService {
           registrationId: "",
           eventAttended: 0,
           isProfileComplete: false,
+          courseName: "",
+          githubProfile: "",
+          linkdinProfile: "",
         );
 
         await SignupFunctions.saveUserDetails(userModel);

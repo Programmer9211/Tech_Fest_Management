@@ -48,6 +48,9 @@ class ProfileScreenController extends GetxController {
       userModel.phoneNumber = phoneNumber.text;
       userModel.instituteName = instituteName.text;
       userModel.registrationId = registrationId.text;
+      userModel.githubProfile = github.text;
+      userModel.linkdinProfile = linkdin.text;
+      userModel.courseName = courseName.text;
 
       await ProfileFunctions.setUserProfileDetails(userModel);
 
@@ -79,6 +82,9 @@ class ProfileScreenController extends GetxController {
       registrationId: "",
       eventAttended: 0,
       isProfileComplete: false,
+      courseName: "",
+      githubProfile: "",
+      linkdinProfile: "",
     );
   }
 }

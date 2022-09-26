@@ -26,6 +26,9 @@ class SearchScreenController extends GetxController {
       registrationId: "",
       eventAttended: 0,
       isProfileComplete: false,
+      courseName: "",
+      githubProfile: "",
+      linkdinProfile: "",
     );
   }
 }
