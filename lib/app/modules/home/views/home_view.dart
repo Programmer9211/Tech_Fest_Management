@@ -128,12 +128,17 @@ class HomeView extends GetView<HomeController> {
                         color: Colors.black,
                       ),
                       SizedBox(width: 18.w),
-                      Text(
-                        "More",
-                        style: TextStyle(
-                            fontSize: 12.sp,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w500),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.EVENT_LIST_SCREEN);
+                        },
+                        child: Text(
+                          "More",
+                          style: TextStyle(
+                              fontSize: 12.sp,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ],
                   ),

@@ -1,20 +1,27 @@
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/indictor.dart';
+import 'package:tech_fest_management/app/models/event_model.dart';
+import 'package:tech_fest_management/app/modules/event_list_screen/db_functions/db_functions.dart';
 
 class EventListScreenController extends GetxController {
-  //TODO: Implement EventListScreenController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  List<EventModel> eventModelList = [];
 
   @override
   void onReady() {
     super.onReady();
+    getAllEvents();
   }
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  void getAllEvents() async {
+    Indicator.showLoading();
+
+    List<EventModel>? model = await EventListFunctions.getOrganiserEvents();
+
+    if (model != null) {
+      eventModelList = model;
+      update();
+    }
+
+    Indicator.closeLoading();
+  }
 }
