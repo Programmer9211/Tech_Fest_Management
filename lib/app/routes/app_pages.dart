@@ -13,8 +13,6 @@ import '../modules/home/views/home_view.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/profile_screen/bindings/profile_screen_binding.dart';
 import '../modules/profile_screen/views/profile_screen_view.dart';
-import '../modules/register_event/bindings/register_event_binding.dart';
-import '../modules/register_event/views/register_event_view.dart';
 import '../modules/search_screen/bindings/search_screen_binding.dart';
 import '../modules/search_screen/views/search_screen_view.dart';
 import '../modules/signin_screen/bindings/signin_screen_binding.dart';
