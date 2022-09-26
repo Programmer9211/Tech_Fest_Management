@@ -11,7 +11,7 @@ class EventModel {
   late EventLocation eventLocation;
   late DateTimeModel eventStartTimings;
   late DateTimeModel eventEndTimings;
-  late EventContactDetails eventContactDetails;
+  // late EventContactDetails eventContactDetails;
   late int registrationFees;
   late List<ParticipantsDetails> participantsDetails;
 
@@ -26,7 +26,7 @@ class EventModel {
     required this.registrationFees,
     required this.participantsDetails,
     required this.eventEndTimings,
-    required this.eventContactDetails,
+    // required this.eventContactDetails,
     required this.eventStartTimings,
     required this.participants,
   });
@@ -43,8 +43,8 @@ class EventModel {
     eventStartTimings = DateTimeModel.fromJson(json['event_start_timings']);
     eventEndTimings = DateTimeModel.fromJson(json['event_end_timings']);
     participants = json['participants'];
-    eventContactDetails =
-        EventContactDetails.fromJson(json['event_contact_details']);
+    // eventContactDetails =
+    //     EventContactDetails.fromJson(json['event_contact_details']);
     if (json['participants_details'] != null) {
       participantsDetails = [];
       List list = json['participants_details'];
@@ -68,7 +68,7 @@ class EventModel {
         participantsDetails.map((v) => v.toJson()).toList();
     data['event_start_timings'] = eventStartTimings.toJson();
     data['event_end_timings'] = eventEndTimings.toJson();
-    data['event_contact_details'] = eventContactDetails.toJson();
+    // data['event_contact_details'] = eventContactDetails.toJson();
     data['participants'] = participants;
 
     return data;

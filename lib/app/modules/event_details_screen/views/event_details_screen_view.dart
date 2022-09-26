@@ -77,7 +77,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 12.h,
               ),
               Text(
-                "TECH_FEST_NAME",
+                controller.eventModel.eventTitle,
                 style: TextStyle(
                     fontSize: 22.sp,
                     color: Colors.black,
@@ -88,7 +88,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 4.h,
               ),
               Text(
-                "TECH_FEST_NAME",
+                controller.eventModel.eventTitle,
                 style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.black,
@@ -100,7 +100,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               ),
               IContainer(
                 title: "Description",
-                desc: "Lorem ipsum Chutiyapa",
+                desc: controller.eventModel.eventDescription,
                 isClickable: false,
               ),
               SizedBox(
@@ -108,7 +108,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               ),
               IContainer(
                   title: "Venue",
-                  desc: "GBU toh nahi jana",
+                  desc: controller.eventModel.eventLocation.address,
                   isClickable: true,
                   clickText: "Show in Map"),
               SizedBox(
@@ -116,17 +116,21 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               ),
               IContainer(
                 title: "Entry Fees",
-                desc: "\$100(One Hundred Rupees)",
+                desc: controller.eventModel.registrationFees == 0
+                    ? "Free"
+                    : controller.eventModel.registrationFees.toString(),
                 isClickable: false,
               ),
               SizedBox(
                 height: 12.h,
               ),
               IContainer(
-                  title: "Timings",
-                  desc: "Wifi nahi chalega late jana",
-                  isClickable: true,
-                  clickText: "Set Reminder"),
+                title: "Timings",
+                desc:
+                    "${controller.eventModel.eventStartTimings.time} ${controller.eventModel.eventStartTimings.day}-${controller.eventModel.eventStartTimings.month}-${controller.eventModel.eventStartTimings.year}",
+                isClickable: true,
+                clickText: "Set Reminder",
+              ),
               SizedBox(height: 80.h),
             ],
           ),
@@ -149,8 +153,11 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                   fontFamily: "ubuntu"),
             ),
             decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.all(Radius.circular(8.r))),
+              color: Colors.black,
+              borderRadius: BorderRadius.all(
+                Radius.circular(8.r),
+              ),
+            ),
           ),
         ),
       ),
