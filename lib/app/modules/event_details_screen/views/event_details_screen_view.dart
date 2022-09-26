@@ -43,7 +43,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 120.h,
                 width: 300.w,
                 child: PageView.builder(
-                  itemCount: controller.carouselSliderImage.length,
+                  itemCount: controller.eventModel.eventImages.length,
                   onPageChanged: controller.onPageChanged,
                   itemBuilder: (context, index) {
                     return Padding(
@@ -52,8 +52,9 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                              controller.carouselSliderImage[index],
+                              controller.eventModel.eventImages[index],
                             ),
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),

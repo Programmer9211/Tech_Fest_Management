@@ -6,7 +6,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 class EventDetailsScreenController extends GetxController {
   late EventModel eventModel;
-  List<String> carouselSliderImage = [];
   List<RxBool> isSelected = [];
   LocationData? _locationData;
 
@@ -15,9 +14,19 @@ class EventDetailsScreenController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     eventModel = EventModel.fromJson(Get.arguments);
+    for (var element in eventModel.eventImages) {
+      isSelected.add(false.obs);
+    }
+    isSelected.first = true.obs;
   }
 
-  void onPageChanged(int value) {}
+  void onPageChanged(int value) {
+    for (var element in isSelected) {
+      element.value = false;
+    }
+
+    isSelected[value].value = true;
+  }
 
   _getLocation() async {
     Location location = Location();
