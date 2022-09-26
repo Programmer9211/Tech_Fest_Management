@@ -9,6 +9,10 @@ class ProfileScreenController extends GetxController {
   final TextEditingController phoneNumber = TextEditingController();
   final TextEditingController instituteName = TextEditingController();
   final TextEditingController registrationId = TextEditingController();
+  final TextEditingController courseName = TextEditingController();
+  final TextEditingController github = TextEditingController();
+
+  final TextEditingController linkdin = TextEditingController();
 
   late UserModel userModel;
 

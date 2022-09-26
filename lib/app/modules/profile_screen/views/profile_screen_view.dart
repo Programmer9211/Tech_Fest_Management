@@ -102,7 +102,7 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                 height: 22.h,
               ),
               Container(
-                height: 270.h,
+                // height: 270.h,
                 width: 300.w,
                 decoration: BoxDecoration(
                   color: AppColor.blocks,
@@ -138,6 +138,30 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                       ProfleTextfield(
                         hintText: "Registration Id",
                         controller: controller.registrationId,
+                      ),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Course Name",
+                        controller: controller.courseName,
+                      ),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Github Profile",
+                        controller: controller.github,
+                      ),
+                      SizedBox(
+                        height: 18.h,
+                      ),
+                      ProfleTextfield(
+                        hintText: "Linkdin Profile",
+                        controller: controller.linkdin,
+                      ),
+                      SizedBox(
+                        height: 18.h,
                       ),
                     ],
                   );

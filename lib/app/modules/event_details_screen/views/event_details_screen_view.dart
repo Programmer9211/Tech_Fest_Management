@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/routes/app_pages.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 import '../../home/views/home_view.dart';
@@ -22,7 +23,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
         elevation: 0.0,
         backgroundColor: AppColor.backGround,
         title: Text(
-          "Event_Name",
+          controller.eventModel.eventTitle,
           style: TextStyle(
             fontSize: 18.sp,
             color: Colors.black,
@@ -130,9 +131,18 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               IContainer(
                 title: "Timings",
                 desc:
-                    "${controller.eventModel.eventStartTimings.time} ${controller.eventModel.eventStartTimings.day}-${controller.eventModel.eventStartTimings.month}-${controller.eventModel.eventStartTimings.year}",
+                    "Start at ${controller.eventModel.eventStartTimings.time} ${controller.eventModel.eventStartTimings.day}-${controller.eventModel.eventStartTimings.month}-${controller.eventModel.eventStartTimings.year} \nEnds at ${controller.eventModel.eventEndTimings.time} ${controller.eventModel.eventEndTimings.day}-${controller.eventModel.eventEndTimings.month}-${controller.eventModel.eventEndTimings.year}",
                 isClickable: true,
                 clickText: "Set Reminder",
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              IContainer(
+                title: "Contact Details",
+                desc:
+                    controller.eventModel.eventContactDetails.convertToString(),
+                isClickable: false,
               ),
               SizedBox(height: 80.h),
             ],
