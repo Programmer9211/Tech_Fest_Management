@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-class ForgotPasswordScreenController extends GetxController {
-  //TODO: Implement ForgotPasswordScreenController
+class ForgotPasswordController extends GetxController {
+  final TextEditingController forgetController = TextEditingController();
 
   final count = 0.obs;
   @override
@@ -15,6 +16,9 @@ class ForgotPasswordScreenController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    super.onClose();
+  }
+
   void increment() => count.value++;
 }

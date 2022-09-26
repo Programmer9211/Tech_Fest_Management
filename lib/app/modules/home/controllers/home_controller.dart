@@ -13,7 +13,11 @@ class HomeController extends GetxController {
   ];
 
 
-  List<String> carouselSliderImage = [];
+  List<String> carouselSliderImage = [
+    "assets/cr1.png",
+    "assets/cr2.png",
+    "assets/cr3.png",
+  ];
   // List<EventModel> eventsModel = [];
   List<RxBool> isSelected = [];
 

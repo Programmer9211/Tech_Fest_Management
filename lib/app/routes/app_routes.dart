@@ -11,6 +11,8 @@ abstract class Routes {
   static const AUTHENTICATION = _Paths.AUTHENTICATION;
   static const EVENT_DETAILS_SCREEN = _Paths.EVENT_DETAILS_SCREEN;
   static const EVENT_LIST_SCREEN = _Paths.EVENT_LIST_SCREEN;
+  static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
+  static const SEARCH_SCREEN = _Paths.SEARCH_SCREEN;
 }
 
 abstract class _Paths {
@@ -21,4 +23,6 @@ abstract class _Paths {
   static const AUTHENTICATION = '/authentication';
   static const EVENT_DETAILS_SCREEN = '/event-details-screen';
   static const EVENT_LIST_SCREEN = '/event-list-screen';
+  static const FORGOT_PASSWORD = '/forgot-password';
+  static const SEARCH_SCREEN = '/search-screen';
 }

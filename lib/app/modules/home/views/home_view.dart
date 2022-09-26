@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:overlay_group_avatar/overlay_group_avatar.dart';
 import 'package:tech_fest_management/app/data/widgets/event_tiles.dart';
+import 'package:tech_fest_management/app/data/widgets/theme.dart';
 import 'package:tech_fest_management/app/routes/app_pages.dart';
+import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -12,7 +13,9 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    bool isDarkMode = AppTheme.isDarkMode;
     return Scaffold(
+      backgroundColor: isDarkMode ? AppColor.darkBG : AppColor.backGround,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Color(0xffFAFAFA),
@@ -25,9 +28,14 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
         actions: [
-          Icon(
-            Icons.dark_mode,
-            color: Colors.black,
+          IconButton(
+            onPressed: () {
+              // Get.toNamed(Routes.REGISTER_EVENT);
+            },
+            icon: Icon(
+              Icons.dark_mode,
+              color: Colors.black,
+            ),
           ),
           SizedBox(
             width: 12.w,
@@ -55,9 +63,10 @@ class HomeView extends GetView<HomeController> {
             padding: EdgeInsets.symmetric(horizontal: 16.sp),
             child: Column(
               children: [
-                SizedBox(
-                  height: 120.h,
-                  width: 300.w,
+                Container(
+              // color: Colors.red,
+                  height: 230.h,
+                  width: 430.w,
                   child: PageView.builder(
                     itemCount: controller.carouselSliderImage.length,
                     onPageChanged: controller.onPageChanged,
@@ -65,9 +74,12 @@ class HomeView extends GetView<HomeController> {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
+                          // height: 300.h,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
+                              fit: BoxFit.fill,
+                              // scale: 3.0,
+                              image: AssetImage(
                                 controller.carouselSliderImage[index],
                               ),
                             ),
@@ -78,7 +90,7 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 SizedBox(
-                  height: size.height / 25,
+                  height: size.height / 30,
                   width: size.width,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -13,4 +13,9 @@ class AppColor {
 
   //Event Details
   static const Color tileColor = Color(0xffD6D6D6);
+
+  //DarkMode
+  static const Color darkBG = Color(0xff010409);
+  static const Color darkTileColor = Color(0xff0D1117);
+  static const Color darkButtonColor = Color(0xff21262D);
 }
