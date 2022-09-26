@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/routes/app_pages.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 import '../../home/views/home_view.dart';
@@ -22,7 +23,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
         elevation: 0.0,
         backgroundColor: AppColor.backGround,
         title: Text(
-          "Event_Name",
+          controller.eventModel.eventTitle,
           style: TextStyle(
             fontSize: 18.sp,
             color: Colors.black,
@@ -77,7 +78,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 12.h,
               ),
               Text(
-                "TECH_FEST_NAME",
+                controller.eventModel.eventTitle,
                 style: TextStyle(
                     fontSize: 22.sp,
                     color: Colors.black,
@@ -88,7 +89,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 4.h,
               ),
               Text(
-                "TECH_FEST_NAME",
+                controller.eventModel.eventTitle,
                 style: TextStyle(
                     fontSize: 12.sp,
                     color: Colors.black,
@@ -100,7 +101,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               ),
               IContainer(
                 title: "Description",
-                desc: "Lorem ipsum Chutiyapa",
+                desc: controller.eventModel.eventDescription,
                 isClickable: false,
               ),
               SizedBox(
@@ -108,25 +109,41 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               ),
               IContainer(
                   title: "Venue",
-                  desc: "GBU toh nahi jana",
+                  desc: controller.eventModel.eventLocation.address,
                   isClickable: true,
+                  onTap: () {
+                    controller.navigateToGoogleMap();
+                  },
                   clickText: "Show in Map"),
               SizedBox(
                 height: 12.h,
               ),
               IContainer(
                 title: "Entry Fees",
-                desc: "\$100(One Hundred Rupees)",
+                desc: controller.eventModel.registrationFees == 0
+                    ? "Free"
+                    : controller.eventModel.registrationFees.toString(),
                 isClickable: false,
               ),
               SizedBox(
                 height: 12.h,
               ),
               IContainer(
-                  title: "Timings",
-                  desc: "Wifi nahi chalega late jana",
-                  isClickable: true,
-                  clickText: "Set Reminder"),
+                title: "Timings",
+                desc:
+                    "Start at ${controller.eventModel.eventStartTimings.time} ${controller.eventModel.eventStartTimings.day}-${controller.eventModel.eventStartTimings.month}-${controller.eventModel.eventStartTimings.year} \nEnds at ${controller.eventModel.eventEndTimings.time} ${controller.eventModel.eventEndTimings.day}-${controller.eventModel.eventEndTimings.month}-${controller.eventModel.eventEndTimings.year}",
+                isClickable: true,
+                clickText: "Set Reminder",
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
+              IContainer(
+                title: "Contact Details",
+                desc:
+                    controller.eventModel.eventContactDetails.convertToString(),
+                isClickable: false,
+              ),
               SizedBox(height: 80.h),
             ],
           ),
@@ -149,8 +166,11 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                   fontFamily: "ubuntu"),
             ),
             decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.all(Radius.circular(8.r))),
+              color: Colors.black,
+              borderRadius: BorderRadius.all(
+                Radius.circular(8.r),
+              ),
+            ),
           ),
         ),
       ),
@@ -164,53 +184,56 @@ Widget IContainer(
     required bool isClickable,
     String clickText = "",
     onTap}) {
-  return Container(
-    width: 400.w,
-    alignment: Alignment.topLeft,
-    child: Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      width: 400.w,
+      alignment: Alignment.topLeft,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              isClickable
-                  ? InkWell(
-                      onTap: () {},
-                      child: Text(
-                        clickText,
-                        style: TextStyle(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.blue,
+                isClickable
+                    ? InkWell(
+                        onTap: () {},
+                        child: Text(
+                          clickText,
+                          style: TextStyle(
+                            fontSize: 10.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.blue,
+                          ),
                         ),
-                      ),
-                    )
-                  : SizedBox(),
-            ],
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            desc,
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: Colors.black,
+                      )
+                    : SizedBox(),
+              ],
             ),
-          )
-        ],
+            SizedBox(height: 4.h),
+            Text(
+              desc,
+              style: TextStyle(
+                fontSize: 12.sp,
+                color: Colors.black,
+              ),
+            )
+          ],
+        ),
       ),
+      decoration: BoxDecoration(
+          color: AppColor.tileColor,
+          borderRadius: BorderRadius.all(Radius.circular(8.r))),
     ),
-    decoration: BoxDecoration(
-        color: AppColor.tileColor,
-        borderRadius: BorderRadius.all(Radius.circular(8.r))),
   );
 }

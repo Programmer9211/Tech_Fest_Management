@@ -56,18 +56,26 @@ class EventListScreenView extends GetView<EventListScreenController> {
         padding: EdgeInsets.symmetric(
           horizontal: 14.w,
         ),
-        child: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  EventTile(),
-                ],
-              );
-            }),
+        child: GetBuilder<EventListScreenController>(builder: (controller) {
+          if (controller.eventModelList.isNotEmpty) {
+            return ListView.builder(
+                itemCount: controller.eventModelList.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      EventTile(model: controller.eventModelList[index]),
+                    ],
+                  );
+                });
+          } else {
+            return Center(
+              child: Text("No Events Available"),
+            );
+          }
+        }),
       ),
     );
   }

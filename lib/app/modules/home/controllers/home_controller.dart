@@ -1,9 +1,10 @@
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/indictor.dart';
 import 'package:tech_fest_management/app/models/event_model.dart';
 import 'package:tech_fest_management/app/modules/home/db_functions/db_functions.dart';
 
 class HomeController extends GetxController {
-
+  EventModel? eventsModel;
 
   List<String> peoples = [
     "Image/asset.png",
@@ -12,26 +13,46 @@ class HomeController extends GetxController {
     "Image/asset.png",
   ];
 
-
   List<String> carouselSliderImage = [
     "assets/cr1.png",
     "assets/cr2.png",
     "assets/cr3.png",
   ];
   // List<EventModel> eventsModel = [];
-  List<RxBool> isSelected = [];
+  List<RxBool> isSelected = [true.obs, false.obs, false.obs];
 
-   void onPageChanged(int value) {}
+  void onPageChanged(int value) {
+    for (var element in isSelected) {
+      element.value = false;
+    }
 
-  // void changeIndicator(int index) {
-  //   for (var i = 0; i < isSelected.length; i++) {
-  //     if (isSelected[i].value) {
-  //       isSelected[i].value = false;
-  //     }
-  //   }
+    isSelected[value].value = true;
+  }
 
-  //   isSelected[index].value = true;
-  // }
+  void changeIndicator(int index) {
+    for (var i = 0; i < isSelected.length; i++) {
+      if (isSelected[i].value) {
+        isSelected[i].value = false;
+      }
+    }
+
+    isSelected[index].value = true;
+  }
+
+  void getAllEvents() async {
+    Indicator.showLoading();
+    eventsModel = await HomeDbFunctions.getAllEvents();
+    update();
+
+    Indicator.closeLoading();
+  }
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+    getAllEvents();
+  }
 
   // void getBannerData() async {
   //   List<String>? caroselModel = await HomeDbFunctions.getSliderData();
@@ -47,13 +68,4 @@ class HomeController extends GetxController {
   //   isSelected[0].value = true;
   // }
 
-  // void getAllEvents() async {
-  //   List<EventModel>? eventModel = await HomeDbFunctions.getAllEvents();
-
-  //   if (eventModel != null) {
-  //     eventsModel = eventModel;
-  //   }
-  // }
 }
-
-
