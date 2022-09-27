@@ -49,7 +49,7 @@ class EventDetailsFunctions {
           .collection(AppKeys.events)
           .doc(id)
           .collection(AppKeys.participants)
-          .where(AppKeys.uid, isEqualTo: uid)
+          .where(AppKeys.uid, isEqualTo: " $uid")
           .get();
 
       print(uid);

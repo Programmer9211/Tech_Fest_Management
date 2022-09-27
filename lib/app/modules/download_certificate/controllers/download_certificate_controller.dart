@@ -11,11 +11,11 @@ class DownloadCertificateController extends GetxController {
 
   void getPermission() async {
     if (await Permission.storage.isGranted &&
-        await Permission.accessMediaLocation.isGranted) {
+        await Permission.manageExternalStorage.isGranted) {
       startDownloading();
     } else {
       await Permission.storage.request();
-      await Permission.accessMediaLocation.request();
+      await Permission.manageExternalStorage.request();
     }
   }
 

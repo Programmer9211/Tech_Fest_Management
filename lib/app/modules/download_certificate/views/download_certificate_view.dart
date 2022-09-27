@@ -10,11 +10,14 @@ class DownloadCertificateView extends GetView<DownloadCertificateController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: KButton(
-          title: "Donwload Certificate",
-          onTap: () {
-            controller.getPermission();
-          },
+        child: Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: KButton(
+            title: "Donwload Certificate",
+            onTap: () {
+              controller.getPermission();
+            },
+          ),
         ),
       ),
     );

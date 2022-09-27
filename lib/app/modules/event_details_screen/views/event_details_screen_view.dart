@@ -36,6 +36,24 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
             fontFamily: "ubuntu",
           ),
         ),
+        actions: [
+          GetBuilder<EventDetailsScreenController>(builder: (controller) {
+            if (controller.isAlreadyExist) {
+              return IconButton(
+                onPressed: () {
+                  Get.toNamed(Routes.DOWNLOAD_CERTIFICATE);
+                },
+                icon: Icon(
+                  Icons.download,
+                  color: Colors.black,
+                ),
+                tooltip: "Download Certificate",
+              );
+            } else {
+              return SizedBox();
+            }
+          }),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
