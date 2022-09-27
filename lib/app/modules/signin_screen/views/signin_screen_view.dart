@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/widgets/theme.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
 import '../../../data/widgets/custom_button.dart';
@@ -12,15 +13,16 @@ import '../controllers/signin_screen_controller.dart';
 class SigninScreenView extends GetView<SigninScreenController> {
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = AppTheme.isDarkMode;
     return Scaffold(
-      backgroundColor: AppColor.backGround,
+      backgroundColor: isDarkMode ? AppColor.darkBG : AppColor.lightBG,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 22.w),
+          padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 12.h),
           child: Column(
             children: [
               SizedBox(
-                height: 125.h,
+                height: 80.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +34,11 @@ class SigninScreenView extends GetView<SigninScreenController> {
                         "LOGIN",
                         style: TextStyle(
                           fontSize: 52.sp,
+                          fontFamily: "ubuntu",
                           fontWeight: FontWeight.w600,
+                          color: isDarkMode
+                              ? Color(0xffFAFAFA)
+                              : Color(0xff000000),
                         ),
                       ),
                       Padding(
@@ -41,7 +47,10 @@ class SigninScreenView extends GetView<SigninScreenController> {
                           "Enter Your Details & login",
                           style: TextStyle(
                             fontSize: 16.sp,
+                            fontFamily: "ubuntu",
                             fontWeight: FontWeight.w500,
+                            color:
+                                isDarkMode ? Color(0xffFAFAFA) : Colors.black87,
                           ),
                         ),
                       ),
@@ -73,7 +82,13 @@ class SigninScreenView extends GetView<SigninScreenController> {
                   Text(
                     "Forgot Password?",
                     style: TextStyle(
+<<<<<<< HEAD
+                      fontFamily: "ubuntu",
+                      fontSize: 12.sp,
+                        color: AppColor.lightButtonColor, fontWeight: FontWeight.w500),
+=======
                         color: AppColor.textColor, fontWeight: FontWeight.w600),
+>>>>>>> 12cd90901a9ddc4596272a5385e7c22e7edc13e0
                   )
                 ],
               ),
@@ -98,12 +113,17 @@ class SigninScreenView extends GetView<SigninScreenController> {
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 12.sp,
+                        fontFamily: "ubuntu",
                         fontWeight: FontWeight.w500),
                     children: [
                       TextSpan(text: "New User? "),
                       TextSpan(
                           text: "Register Here",
-                          style: TextStyle(color: AppColor.textColor))
+                          style: TextStyle(
+                              fontSize: 12.sp,
+                              fontFamily: "ubuntu",
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.lightButtonColor))
                     ],
                   ),
                 ),

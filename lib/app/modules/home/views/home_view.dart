@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:tech_fest_management/app/data/widgets/event_tiles.dart';
-import 'package:tech_fest_management/app/data/widgets/theme.dart';
 import 'package:tech_fest_management/app/routes/app_pages.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
@@ -13,9 +11,8 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    bool isDarkMode = AppTheme.isDarkMode;
     return Scaffold(
-      backgroundColor: isDarkMode ? AppColor.darkBG : AppColor.backGround,
+      backgroundColor: AppColor.backGround,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Color(0xffFAFAFA),
@@ -28,15 +25,15 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              // Get.toNamed(Routes.REGISTER_EVENT);
-            },
-            icon: Icon(
-              Icons.dark_mode,
-              color: Colors.black,
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {
+          //     controller.onChangeTheme();
+          //   },
+          //   icon: Icon(
+          //     Icons.dark_mode,
+          //     color: Colors.black,
+          //   ),
+          // ),
           SizedBox(
             width: 12.w,
           ),
@@ -152,6 +149,7 @@ class HomeView extends GetView<HomeController> {
                     return SizedBox();
                   }
                 }),
+                
               ],
             ),
           )
