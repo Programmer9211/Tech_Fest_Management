@@ -13,6 +13,7 @@ abstract class Routes {
   static const EVENT_LIST_SCREEN = _Paths.EVENT_LIST_SCREEN;
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const SEARCH_SCREEN = _Paths.SEARCH_SCREEN;
+  static const DOWNLOAD_CERTIFICATE = _Paths.DOWNLOAD_CERTIFICATE;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const EVENT_LIST_SCREEN = '/event-list-screen';
   static const FORGOT_PASSWORD = '/forgot-password';
   static const SEARCH_SCREEN = '/search-screen';
+  static const DOWNLOAD_CERTIFICATE = '/download-certificate';
 }

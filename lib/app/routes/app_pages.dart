@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 
+import 'package:tech_fest_management/app/modules/download_certificate/bindings/download_certificate_binding.dart';
+import 'package:tech_fest_management/app/modules/download_certificate/views/download_certificate_view.dart';
+
 import '../modules/authentication/bindings/authentication_binding.dart';
 import '../modules/authentication/views/authentication_view.dart';
 import '../modules/event_details_screen/bindings/event_details_screen_binding.dart';
@@ -71,6 +74,11 @@ class AppPages {
       name: _Paths.SEARCH_SCREEN,
       page: () => SearchScreenView(),
       binding: SearchScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOWNLOAD_CERTIFICATE,
+      page: () => DownloadCertificateView(),
+      binding: DownloadCertificateBinding(),
     ),
   ];
 }
