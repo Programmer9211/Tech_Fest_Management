@@ -73,7 +73,7 @@ class SigninScreenView extends GetView<SigninScreenController> {
                   Text(
                     "Forgot Password?",
                     style: TextStyle(
-                        color: AppColor.textColor, fontWeight: FontWeight.w500),
+                        color: AppColor.textColor, fontWeight: FontWeight.w600),
                   )
                 ],
               ),

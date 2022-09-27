@@ -18,4 +18,6 @@ class AppColor {
   static const Color darkBG = Color(0xff010409);
   static const Color darkTileColor = Color(0xff0D1117);
   static const Color darkButtonColor = Color(0xff21262D);
+
+  static const Color black80 = Color(0xcc000000);
 }
