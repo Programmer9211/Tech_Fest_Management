@@ -151,7 +151,9 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
         ),
       ),
       bottomSheet: InkWell(
-        onTap: () {},
+        onTap: () {
+          controller.onFillForm();
+        },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -161,10 +163,11 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
             child: Text(
               "Fill Form",
               style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "ubuntu"),
+                fontSize: 16.sp,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontFamily: "ubuntu",
+              ),
             ),
             decoration: BoxDecoration(
               color: Colors.black,
