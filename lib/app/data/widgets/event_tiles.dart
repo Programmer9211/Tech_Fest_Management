@@ -32,13 +32,16 @@ class EventTile extends StatelessWidget {
                   //child : Image.asset(""),
                   decoration: BoxDecoration(
                       color: Color(0xff000000),
-                      borderRadius: BorderRadius.all(Radius.circular(12.r)))),
+                      borderRadius: BorderRadius.all(Radius.circular(8.r)))),
               SizedBox(width: 16.w),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      height: 12.h,
+                    ),
                     Row(
                       children: [
                         Expanded(
@@ -53,15 +56,13 @@ class EventTile extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 18.w),
-                        Expanded(
-                          child: Text(
-                            "${model!.eventStartTimings.day} ${model!.eventStartTimings.month} ${model!.eventStartTimings.year}",
-                            style: TextStyle(
-                              color: Colors.black45,
-                              fontSize: 12.sp,
-                              fontFamily: 'ubuntu',
-                              // fontWeight: FontWeight.w400,
-                            ),
+                        Text(
+                          "${model!.eventStartTimings.day} ${model!.eventStartTimings.month} ${model!.eventStartTimings.year}",
+                          style: TextStyle(
+                            color: Colors.black45,
+                            fontSize: 12.sp,
+                            fontFamily: 'ubuntu',
+                            // fontWeight: FontWeight.w400,
                           ),
                         ),
                       ],

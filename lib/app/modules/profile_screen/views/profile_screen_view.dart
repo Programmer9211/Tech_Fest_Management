@@ -20,20 +20,19 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
         ),
         leading: Padding(
-          padding: const EdgeInsets.only(left: 8).r,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            ),
+          padding: EdgeInsets.symmetric(horizontal: 20.0.w),
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
           ),
         ),
+        titleSpacing: 1,
+        leadingWidth: 50,
         backgroundColor: AppColor.backGround,
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 31).r,
+        padding: EdgeInsets.symmetric(horizontal: 25.w),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -143,7 +142,7 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
               ),
               Container(
                 // height: 270.h,
-                width: 300.w,
+                width: 320.w,
                 decoration: BoxDecoration(
                   color: AppColor.blocks,
                   borderRadius: BorderRadius.circular(8.r),
@@ -201,14 +200,14 @@ class ProfileScreenView extends GetView<ProfileScreenController> {
                         controller: controller.linkdin,
                       ),
                       SizedBox(
-                        height: 18.h,
+                        height: 24.h,
                       ),
                     ],
                   );
                 }),
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               KButton(
                 title: "Save",

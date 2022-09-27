@@ -56,8 +56,26 @@ class HomeView extends GetView<HomeController> {
       ),
       body: Column(
         children: [
+          Row(
+            children: [
+              Container(
+                height: 1.4,
+                width: 13.w,
+              ),
+              Expanded(
+                child: Container(height: 1.2.h, color: AppColor.black80),
+              ),
+              Container(
+                height: 1.4,
+                width: 130.w,
+              )
+            ],
+          ),
+          SizedBox(
+            height: 5.h,
+          ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.sp),
+            padding: EdgeInsets.symmetric(horizontal: 12.sp),
             child: Column(
               children: [
                 Container(
@@ -73,8 +91,10 @@ class HomeView extends GetView<HomeController> {
                         child: Container(
                           // height: 300.h,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6.r),
                             image: DecorationImage(
                               fit: BoxFit.fill,
+
                               // scale: 3.0,
                               image: AssetImage(
                                 controller.carouselSliderImage[index],
@@ -119,10 +139,15 @@ class HomeView extends GetView<HomeController> {
                             color: Colors.black,
                             fontWeight: FontWeight.w500),
                       ),
-                      Container(
-                        height: 1.h,
-                        width: 160.w,
-                        color: Colors.black,
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 1.h,
+                          // width: 160.w,
+                          color: Colors.black,
+                        ),
                       ),
                       SizedBox(width: 18.w),
                       GestureDetector(
