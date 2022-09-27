@@ -7,17 +7,20 @@ import 'package:tech_fest_management/app/modules/event_details_screen/db_functio
 import 'package:tech_fest_management/app/routes/app_pages.dart';
 import 'package:tech_fest_management/const/app_const/app_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class EventDetailsScreenController extends GetxController {
   late EventModel eventModel;
   List<RxBool> isSelected = [];
   LocationData? _locationData;
   bool isAlreadyExist = false;
+  late Razorpay _razorpay;
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+    initialiseRazorPay();
     eventModel = EventModel.fromJson(Get.arguments);
     for (var element in eventModel.eventImages) {
       isSelected.add(false.obs);
@@ -108,7 +111,9 @@ class EventDetailsScreenController extends GetxController {
           Indicator.closeLoading();
 
           Get.back();
-        } else {}
+        } else {
+          openRazorPay();
+        }
       } else {
         Indicator.showSnackBar("Please Complete Your Profile");
         Get.toNamed(Routes.PROFILE_SCREEN);
@@ -116,5 +121,43 @@ class EventDetailsScreenController extends GetxController {
     }
   }
 
-  void initialiseRazorPay() {}
+  void initialiseRazorPay() {
+    _razorpay = Razorpay();
+
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+  }
+
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+    Indicator.showSnackBar("Registration Sucessfull");
+  }
+
+  void _handlePaymentError(PaymentFailureResponse response) {
+    Indicator.showSnackBar("Payement Failed");
+  }
+
+  void _handleExternalWallet(ExternalWalletResponse response) {}
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+    _razorpay.clear();
+  }
+
+  void openRazorPay() {
+    var options = {
+      'key': 'rzp_test_FSFnXQOqPP1YbJ',
+      'amount': eventModel.registrationFees + 100,
+      'name': eventModel.eventTitle,
+      'description': eventModel.eventDescription,
+      'prefill': {
+        'contact': eventModel.eventContactDetails.phoneNo,
+        'email': eventModel.eventContactDetails.email,
+      }
+    };
+
+    _razorpay.open(options);
+  }
 }

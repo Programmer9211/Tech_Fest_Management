@@ -43,18 +43,20 @@ class EventDetailsFunctions {
 
   static Future<bool> checkIfAlreadyRegistered(String id) async {
     try {
+      String uid = FirebaseAuth.instance.currentUser!.uid;
+
       final result = await _firestore
           .collection(AppKeys.events)
           .doc(id)
           .collection(AppKeys.participants)
-          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .where(AppKeys.uid, isEqualTo: uid)
           .get();
 
-      print(FirebaseAuth.instance.currentUser!.uid);
+      print(uid);
       print(id);
-      print(result.data());
+      print(result.docs.length);
 
-      return result.exists;
+      return result.docs.first.exists;
     } catch (e) {
       print(e);
       return false;
