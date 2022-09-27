@@ -124,6 +124,15 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               SizedBox(
                 height: 12.h,
               ),
+              TextButton(
+                onPressed: () {
+                  Get.toNamed(Routes.SEARCH_SCREEN);
+                },
+                child: Text("Invite Members"),
+              ),
+              SizedBox(
+                height: 12.h,
+              ),
               IContainer(
                 title: "Description",
                 desc: controller.eventModel.eventDescription,

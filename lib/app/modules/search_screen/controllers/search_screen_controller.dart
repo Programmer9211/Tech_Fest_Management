@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/indictor.dart';
 import 'package:tech_fest_management/app/models/user_model.dart';
 import 'package:tech_fest_management/app/modules/search_screen/db_functions/db_functions.dart';
 
@@ -9,7 +10,14 @@ class SearchScreenController extends GetxController {
   final TextEditingController searchController = TextEditingController();
 
   void onSearch(String query) async {
-    await SearchFunctions.searchUsersToInvite(query);
+    final mod = await SearchFunctions.searchUsersToInvite(query);
+
+    // 32165498123
+
+    if (mod != null) {
+      model = mod;
+      update();
+    }
   }
 
   @override
@@ -30,5 +38,16 @@ class SearchScreenController extends GetxController {
       githubProfile: "",
       linkdinProfile: "",
     );
+  }
+
+  void onInvite() async {
+    Indicator.showLoading();
+
+    await Future.delayed(
+      Duration(seconds: 1),
+    );
+
+    Indicator.closeLoading();
+    Indicator.showSnackBar("Invite Sennt Sucessfully");
   }
 }
