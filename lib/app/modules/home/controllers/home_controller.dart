@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/get_storage/get_storage.dart';
 import 'package:tech_fest_management/app/data/indictor.dart';
 import 'package:tech_fest_management/app/models/event_model.dart';
 import 'package:tech_fest_management/app/modules/home/db_functions/db_functions.dart';
+import 'package:tech_fest_management/const/app_const/app_keys.dart';
 
 class HomeController extends GetxController {
   EventModel? eventsModel;
@@ -20,6 +22,13 @@ class HomeController extends GetxController {
   ];
   // List<EventModel> eventsModel = [];
   List<RxBool> isSelected = [true.obs, false.obs, false.obs];
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    print(Storage.getValue(AppKeys.isProfileComplete));
+  }
 
   void onPageChanged(int value) {
     for (var element in isSelected) {

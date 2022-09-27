@@ -19,6 +19,19 @@ class ProfileScreenController extends GetxController {
   final TextEditingController github = TextEditingController();
   final TextEditingController linkdin = TextEditingController();
 
+  void checkIfProfileCompleted() {
+    if (name.text.isNotEmpty &&
+        phoneNumber.text.isNotEmpty &&
+        instituteName.text.isNotEmpty &&
+        registrationId.text.isNotEmpty &&
+        courseName.text.isNotEmpty &&
+        github.text.isNotEmpty &&
+        linkdin.text.isNotEmpty) {
+      userModel.isProfileComplete = true;
+      Storage.saveValue(AppKeys.isProfileComplete, true);
+    }
+  }
+
   File? profileImageFile;
 
   late UserModel userModel;
@@ -58,7 +71,7 @@ class ProfileScreenController extends GetxController {
       userModel.githubProfile = github.text;
       userModel.linkdinProfile = linkdin.text;
       userModel.courseName = courseName.text;
-
+      checkIfProfileCompleted();
       await Storage.saveValue(AppKeys.name, userModel.name);
 
       if (profileImageFile != null) {

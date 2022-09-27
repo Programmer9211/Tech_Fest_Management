@@ -92,4 +92,6 @@ class EventDetailsScreenController extends GetxController {
       Get.toNamed(Routes.PROFILE_SCREEN);
     }
   }
+
+  void initialiseRazorPay() {}
 }
