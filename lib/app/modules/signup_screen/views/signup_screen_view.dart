@@ -37,11 +37,11 @@ class SignupScreenView extends GetView<SignupScreenController> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 2).r,
+                        padding: EdgeInsets.only(left: 2.w),
                         child: Text(
                           "Enter Your Details & Register",
                           style: TextStyle(
-                            fontSize: 16.sp,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -95,19 +95,22 @@ class SignupScreenView extends GetView<SignupScreenController> {
                   ),
                   RichText(
                     text: TextSpan(
-                      style: TextStyle(color: Colors.black, fontSize: 12.sp),
+                      style: TextStyle(
+                          color: AppColor.black80,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.w500),
                       children: [
                         TextSpan(
                             text:
                                 "By registering to the app you agree to the\n"),
                         TextSpan(
                             text: "Terms and Conditions ",
-                            style: TextStyle(color: Colors.blue)),
+                            style: TextStyle(color: AppColor.textColor)),
                         TextSpan(text: "and "),
                         TextSpan(
                           text: "Privacy Policy",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: AppColor.textColor,
                           ),
                         )
                       ],
@@ -127,6 +130,25 @@ class SignupScreenView extends GetView<SignupScreenController> {
               SizedBox(
                 height: 70.h,
               ),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(Routes.SIGNIN_SCREEN);
+                },
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500),
+                    children: [
+                      TextSpan(text: "Already an user? "),
+                      TextSpan(
+                          text: "Sign In",
+                          style: TextStyle(color: AppColor.textColor))
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

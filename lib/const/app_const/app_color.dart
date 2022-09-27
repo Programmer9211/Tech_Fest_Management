@@ -23,4 +23,5 @@ class AppColor {
   static const Color lightBG = Color(0xfff6f8fa);
   static const Color lightTileColor = Color(0xffffffffff);
   static const Color lightButtonColor = Color(0xff49dcff);
+  static const Color black80 = Color(0xcc000000);
 }

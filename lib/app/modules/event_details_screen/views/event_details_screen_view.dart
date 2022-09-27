@@ -43,7 +43,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                 height: 120.h,
                 width: 300.w,
                 child: PageView.builder(
-                  itemCount: controller.carouselSliderImage.length,
+                  itemCount: controller.eventModel.eventImages.length,
                   onPageChanged: controller.onPageChanged,
                   itemBuilder: (context, index) {
                     return Padding(
@@ -52,8 +52,9 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                              controller.carouselSliderImage[index],
+                              controller.eventModel.eventImages[index],
                             ),
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -150,7 +151,9 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
         ),
       ),
       bottomSheet: InkWell(
-        onTap: () {},
+        onTap: () {
+          controller.onFillForm();
+        },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -160,10 +163,11 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
             child: Text(
               "Fill Form",
               style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: "ubuntu"),
+                fontSize: 16.sp,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontFamily: "ubuntu",
+              ),
             ),
             decoration: BoxDecoration(
               color: Colors.black,

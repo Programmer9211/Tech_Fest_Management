@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:tech_fest_management/app/modules/signin_screen/db_function/db_functions.dart';
 
 import '../../../const/app_const/app_alert.dart';
 import '../../../const/app_const/app_keys.dart';
@@ -30,6 +31,7 @@ class AuthenticationService {
 
       if (user != null) {
         await Storage.saveValue(AppKeys.uid, uid);
+        await SigninFunction.getData();
         return AppKeys.sucess;
       } else {
         return AppKeys.failed;
@@ -65,6 +67,9 @@ class AuthenticationService {
           registrationId: "",
           eventAttended: 0,
           isProfileComplete: false,
+          courseName: "",
+          githubProfile: "",
+          linkdinProfile: "",
         );
 
         await SignupFunctions.saveUserDetails(userModel);

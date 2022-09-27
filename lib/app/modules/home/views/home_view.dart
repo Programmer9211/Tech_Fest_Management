@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pdf/widgets.dart' as pw;
 import 'package:get/get.dart';
 import 'package:tech_fest_management/app/data/widgets/event_tiles.dart';
-import 'package:tech_fest_management/app/data/widgets/theme.dart';
 import 'package:tech_fest_management/app/routes/app_pages.dart';
 import 'package:tech_fest_management/const/app_const/app_color.dart';
 
@@ -13,7 +11,6 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    bool isDarkMode = AppTheme.isDarkMode;
     return Scaffold(
       backgroundColor: AppColor.backGround,
       appBar: AppBar(

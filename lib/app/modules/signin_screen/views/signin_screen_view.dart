@@ -82,9 +82,13 @@ class SigninScreenView extends GetView<SigninScreenController> {
                   Text(
                     "Forgot Password?",
                     style: TextStyle(
+<<<<<<< HEAD
                       fontFamily: "ubuntu",
                       fontSize: 12.sp,
                         color: AppColor.lightButtonColor, fontWeight: FontWeight.w500),
+=======
+                        color: AppColor.textColor, fontWeight: FontWeight.w600),
+>>>>>>> 12cd90901a9ddc4596272a5385e7c22e7edc13e0
                   )
                 ],
               ),
