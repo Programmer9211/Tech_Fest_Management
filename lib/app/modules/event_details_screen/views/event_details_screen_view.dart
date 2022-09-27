@@ -160,15 +160,18 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
             width: 400.w,
             height: 60.h,
             alignment: Alignment.center,
-            child: Text(
-              "Fill Form",
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontFamily: "ubuntu",
-              ),
-            ),
+            child:
+                GetBuilder<EventDetailsScreenController>(builder: (controller) {
+              return Text(
+                controller.isAlreadyExist ? "Already Registered" : "Fill Form",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "ubuntu",
+                ),
+              );
+            }),
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.all(

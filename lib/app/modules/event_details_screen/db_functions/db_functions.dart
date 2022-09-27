@@ -40,4 +40,24 @@ class EventDetailsFunctions {
       print(e);
     }
   }
+
+  static Future<bool> checkIfAlreadyRegistered(String id) async {
+    try {
+      final result = await _firestore
+          .collection(AppKeys.events)
+          .doc(id)
+          .collection(AppKeys.participants)
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+
+      print(FirebaseAuth.instance.currentUser!.uid);
+      print(id);
+      print(result.data());
+
+      return result.exists;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
 }

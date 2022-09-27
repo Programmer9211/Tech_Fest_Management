@@ -12,6 +12,7 @@ class EventDetailsScreenController extends GetxController {
   late EventModel eventModel;
   List<RxBool> isSelected = [];
   LocationData? _locationData;
+  bool isAlreadyExist = false;
 
   @override
   void onInit() {
@@ -22,6 +23,26 @@ class EventDetailsScreenController extends GetxController {
       isSelected.add(false.obs);
     }
     isSelected.first = true.obs;
+  }
+
+  @override
+  void onReady() {
+    // TODO: implement onReady
+    super.onReady();
+    _checkIfAlreadyParticipated();
+  }
+
+  void _checkIfAlreadyParticipated() async {
+    Indicator.showLoading();
+
+    isAlreadyExist =
+        await EventDetailsFunctions.checkIfAlreadyRegistered(eventModel.id);
+
+    print(isAlreadyExist);
+
+    update();
+
+    Indicator.closeLoading();
   }
 
   void onPageChanged(int value) {
@@ -77,19 +98,21 @@ class EventDetailsScreenController extends GetxController {
   }
 
   void onFillForm() async {
-    if (Storage.getValue(AppKeys.isProfileComplete)) {
-      if (eventModel.registrationFees == 0) {
-        Indicator.showLoading();
+    if (!isAlreadyExist) {
+      if (Storage.getValue(AppKeys.isProfileComplete)) {
+        if (eventModel.registrationFees == 0) {
+          Indicator.showLoading();
 
-        await EventDetailsFunctions.registerUserInApp(eventModel.id);
+          await EventDetailsFunctions.registerUserInApp(eventModel.id);
 
-        Indicator.closeLoading();
+          Indicator.closeLoading();
 
-        Get.back();
-      } else {}
-    } else {
-      Indicator.showSnackBar("Please Complete Your Profile");
-      Get.toNamed(Routes.PROFILE_SCREEN);
+          Get.back();
+        } else {}
+      } else {
+        Indicator.showSnackBar("Please Complete Your Profile");
+        Get.toNamed(Routes.PROFILE_SCREEN);
+      }
     }
   }
 
