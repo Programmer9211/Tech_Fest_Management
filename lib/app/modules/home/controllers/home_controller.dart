@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
+import 'package:tech_fest_management/app/data/widgets/theme.dart';
 import 'package:tech_fest_management/app/data/indictor.dart';
 import 'package:tech_fest_management/app/models/event_model.dart';
 import 'package:tech_fest_management/app/modules/home/db_functions/db_functions.dart';
+
+import '../../../data/get_storage/get_storage.dart';
 
 class HomeController extends GetxController {
   EventModel? eventsModel;
@@ -67,5 +70,15 @@ class HomeController extends GetxController {
 
   //   isSelected[0].value = true;
   // }
+
+  void onChangeTheme() {
+    AppTheme.isDarkMode =! AppTheme.isDarkMode;
+    if (AppTheme.isDarkMode) {
+      Storage.setDarkTheme;
+    } else {
+      Storage.setLightTheme;
+    }
+    update();
+  }
 
 }
