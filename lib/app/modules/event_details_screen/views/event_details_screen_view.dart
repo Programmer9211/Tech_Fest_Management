@@ -15,11 +15,16 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back_ios,
-          size: 20.sp,
-          color: Colors.black,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 8.0.w),
+          child: Icon(
+            Icons.arrow_back_ios,
+            size: 20.sp,
+            color: Colors.black,
+          ),
         ),
+        titleSpacing: 1,
+        leadingWidth: 50,
         elevation: 0.0,
         backgroundColor: AppColor.backGround,
         title: Text(
@@ -41,7 +46,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
               SizedBox(height: 8.h),
               SizedBox(
                 height: 120.h,
-                width: 300.w,
+                width: 340.w,
                 child: PageView.builder(
                   itemCount: controller.eventModel.eventImages.length,
                   onPageChanged: controller.onPageChanged,
@@ -50,6 +55,7 @@ class EventDetailsScreenView extends GetView<EventDetailsScreenController> {
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6.r),
                           image: DecorationImage(
                             image: NetworkImage(
                               controller.eventModel.eventImages[index],
