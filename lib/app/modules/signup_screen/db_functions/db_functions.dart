@@ -19,5 +19,9 @@ class SignupFunctions {
     await Storage.saveValue(AppKeys.email, userModel.email);
     await Storage.saveValue(AppKeys.name, userModel.name);
     await Storage.saveValue(AppKeys.profileImage, userModel.profileImage);
+    await Storage.saveValue(
+      AppKeys.isProfileComplete,
+      userModel.isProfileComplete,
+    );
   }
 }

@@ -1,7 +1,11 @@
 import 'package:get/get.dart';
 import 'package:location/location.dart';
+import 'package:tech_fest_management/app/data/get_storage/get_storage.dart';
+import 'package:tech_fest_management/app/data/indictor.dart';
 import 'package:tech_fest_management/app/models/event_model.dart';
 import 'package:tech_fest_management/app/modules/event_details_screen/db_functions/db_functions.dart';
+import 'package:tech_fest_management/app/routes/app_pages.dart';
+import 'package:tech_fest_management/const/app_const/app_keys.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EventDetailsScreenController extends GetxController {
@@ -71,4 +75,23 @@ class EventDetailsScreenController extends GetxController {
       throw 'Could not launch $url';
     }
   }
+
+  void onFillForm() async {
+    if (Storage.getValue(AppKeys.isProfileComplete)) {
+      if (eventModel.registrationFees == 0) {
+        Indicator.showLoading();
+
+        await EventDetailsFunctions.registerUserInApp(eventModel.id);
+
+        Indicator.closeLoading();
+
+        Get.back();
+      } else {}
+    } else {
+      Indicator.showSnackBar("Please Complete Your Profile");
+      Get.toNamed(Routes.PROFILE_SCREEN);
+    }
+  }
+
+  void initialiseRazorPay() {}
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_button.dart';
 import 'package:tech_fest_management/app/data/widgets/custom_textfield.dart';
-
 import '../controllers/forgot_password_controller.dart';
+
+
 
 class ForgotPasswordView extends GetView<ForgotPasswordController> {
   const ForgotPasswordView({Key? key}) : super(key: key);
